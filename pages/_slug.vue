@@ -19,7 +19,6 @@ export default {
         movie: $preview,
       }
     }
-    console.log({ preview: $preview })
     try {
       const movie = await $sanity.fetch(
         "*[_type == 'movie' && slug.current == $slug][0]",
