@@ -13,7 +13,8 @@ export default {
   components: {
     BlockContent,
   },
-  async asyncData({ $sanity, params }) {
+  async asyncData({ $sanity, params, $preview }) {
+    console.log({ preview: $preview })
     try {
       const movie = await $sanity.fetch(
         "*[_type == 'movie' && slug.current == $slug][0]",

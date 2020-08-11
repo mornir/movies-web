@@ -1263,7 +1263,7 @@
     hyperscript "^2.0.2"
     object-assign "^4.1.1"
 
-"@sanity/client@^1.149.13":
+"@sanity/client@^1.149.13", "@sanity/client@^1.149.18":
   version "1.149.18"
   resolved "https://registry.yarnpkg.com/@sanity/client/-/client-1.149.18.tgz#b69da5a9339ced013de961971e737133e1501e8a"
   integrity sha512-yuJt7t56jkgrSkg3rXGSsrD81+a/0CLnj18JyTqLWAkojihqD2/KjYy0XOTELFUVk74Z6d6pHnNt0CpqTzlGLQ==
@@ -6331,13 +6331,6 @@ picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
   integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
-
-picosanity@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/picosanity/-/picosanity-2.0.2.tgz#2d5552731d66479a296334bd90a814449a587ad4"
-  integrity sha512-lCp5TqmL6nBDY/G34Y9skVG95RgHPSpPO30041jL5oUyCb3N+72RAzO3YMnmVPU1DTx9tWQaByWxl6UroYoQvw==
-  dependencies:
-    node-fetch "^2.6.0"
 
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
