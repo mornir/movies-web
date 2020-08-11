@@ -1,11 +1,11 @@
-export default async ({ query, enablePreview, $preview }) => {
+export default async ({ query, enablePreview, $sanityPreview }) => {
   console.log('Preview Enabled')
   if (typeof query.preview !== 'undefined') {
     const { pageId, isDraft } = query
 
     console.log(pageId)
     if (isDraft) {
-      const movie = await $preview.fetch('*[_id == $id][0]', {
+      const movie = await $sanityPreview.fetch('*[_id == $id][0]', {
         id: pageId,
       })
 

@@ -28,7 +28,8 @@ export default (context, inject) => {
   context.$sanity = client
   inject('sanity', client)
 
-  inject('preview', preview)
+  // DO NOT CALL IT PREVIEW
+  inject('sanityPreview', preview)
 
   context.$urlFor = urlFor
   inject('urlFor', urlFor)

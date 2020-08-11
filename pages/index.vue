@@ -1,5 +1,5 @@
 <template>
-  <div class="prose lg:prose-xl p-8">
+  <div>
     <ul>
       <li v-for="movie in movies" :key="movie._id">
         <nuxt-link :to="'/' + movie.link">{{ movie.title }}</nuxt-link>

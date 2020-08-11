@@ -1,5 +1,5 @@
 <template>
-  <article class="prose lg:prose-xl p-8">
+  <article>
     <h1>{{ movie.title }}</h1>
     <img :src="$urlFor(movie.poster)" :alt="movie.title + 'poster'" />
     <BlockContent :blocks="movie.overview" />
@@ -14,6 +14,11 @@ export default {
     BlockContent,
   },
   async asyncData({ $sanity, params, $preview }) {
+    if ($preview) {
+      return {
+        movie: $preview,
+      }
+    }
     console.log({ preview: $preview })
     try {
       const movie = await $sanity.fetch(
