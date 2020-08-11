@@ -1,12 +1,8 @@
 <template>
   <article>
-    <button
-      v-if="isDraft"
-      class="border-2 border-blue-500"
-      @click="$nuxt.refresh()"
-    >
+    <!--     <button class="border-2 border-blue-500" @click="$nuxt.refresh()">
       REFRESH
-    </button>
+    </button> -->
     <h1>{{ movie.title }}</h1>
     <img :src="$urlFor(movie.poster)" :alt="movie.title + 'poster'" />
     <BlockContent :blocks="movie.overview" />
@@ -21,15 +17,11 @@ export default {
     BlockContent,
   },
 
-  async asyncData({ $sanity, params, $preview, $sanityPreview }) {
+  async asyncData({ $sanity, params, $preview }) {
     if ($preview) {
-      const movie = await $sanityPreview.fetch('*[_id == $id][0]', {
-        id: $preview.pageId,
-      })
-
       return {
-        movie,
-        isDraft: $preview.isDraft === 'true',
+        movie: $preview,
+        isDraft: true,
       }
     }
 
@@ -52,6 +44,14 @@ export default {
       movie: {},
       isDraft: false,
     }
+  },
+  mounted() {
+    if (this.$preview)
+      this.$sanityPreview
+        .listen('*[_id == $id][0]', { id: this.$route.query.pageId })
+        .subscribe((update) => {
+          this.movie = update.result
+        })
   },
 }
 </script>
