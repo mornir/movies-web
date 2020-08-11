@@ -13,10 +13,14 @@ export default {
   components: {
     BlockContent,
   },
-  async asyncData({ $sanity, params, $preview }) {
+  async asyncData({ $sanity, params, $preview, $sanityPreview }) {
+    console.log({ preview: $preview })
     if ($preview) {
+      const movie = await $sanityPreview.fetch('*[_id == $id][0]', {
+        id: $preview.pageId,
+      })
       return {
-        movie: $preview,
+        movie,
       }
     }
     try {

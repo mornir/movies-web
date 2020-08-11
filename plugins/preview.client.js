@@ -1,3 +1,11 @@
+export default ({ query, enablePreview }) => {
+  console.log('Preview Enabled')
+  if (typeof query.preview !== 'undefined') {
+    enablePreview(query)
+  }
+}
+
+/*
 export default async ({ query, enablePreview, $sanityPreview }) => {
   console.log('Preview Enabled')
   if (typeof query.preview !== 'undefined') {
@@ -15,3 +23,4 @@ export default async ({ query, enablePreview, $sanityPreview }) => {
     }
   }
 }
+ */
