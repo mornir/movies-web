@@ -13,7 +13,6 @@ export default {
   components: {
     BlockContent,
   },
-
   async asyncData({ $sanity, params, $preview, $sanityPreview }) {
     try {
       if ($preview?.id) {
@@ -42,7 +41,8 @@ export default {
       isDraft: false,
     }
   },
-  /*  mounted() {
+  /* Real-Time preview mode. Requires @sanity/client. Doesn't work for references
+    mounted() {
    if (this.$preview)
       this.$sanityPreview
         .listen('*[_id == $id][0]', { id: this.$route.query.pageId })

@@ -22,10 +22,6 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
-   ** Global CSS
-   */
-  css: [],
-  /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
@@ -44,15 +40,6 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
   ],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [],
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
-  build: {},
 
   generate: {
     fallback: true,

@@ -1263,7 +1263,7 @@
     hyperscript "^2.0.2"
     object-assign "^4.1.1"
 
-"@sanity/client@^1.149.13", "@sanity/client@^1.149.18":
+"@sanity/client@^1.149.13":
   version "1.149.18"
   resolved "https://registry.yarnpkg.com/@sanity/client/-/client-1.149.18.tgz#b69da5a9339ced013de961971e737133e1501e8a"
   integrity sha512-yuJt7t56jkgrSkg3rXGSsrD81+a/0CLnj18JyTqLWAkojihqD2/KjYy0XOTELFUVk74Z6d6pHnNt0CpqTzlGLQ==
