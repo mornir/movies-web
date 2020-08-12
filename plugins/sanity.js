@@ -1,4 +1,4 @@
-import sanity from '@sanity/client' // or from '@sanity/client'
+import sanity from 'picosanity' // or from '@sanity/client'
 
 import imageUrlBuilder from '@sanity/image-url'
 // Config data for Sanity Client
@@ -26,7 +26,7 @@ const builder = imageUrlBuilder(client)
 const urlFor = (source) => builder.image(source).auto('format')
 
 // So we can import the client in nuxt.config.js
-export { client }
+// export { client }
 
 export default (context, inject) => {
   // Inject sanity client to the instance and context as $sanity
