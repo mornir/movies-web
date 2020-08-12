@@ -13,7 +13,7 @@
         </p>
       </aside>
     </client-only>
-    <div class="p-8 prose lg:prose-xl">
+    <div class="p-8 mx-auto prose lg:prose-xl">
       <header>
         <h1><nuxt-link to="/">Home</nuxt-link></h1>
       </header>
