@@ -1,27 +1,11 @@
-/* export default async ({ query, enablePreview, $sanityPreview }) => {
-  console.log('Preview Enabled')
-  if (typeof query.preview !== 'undefined') {
-    const { pageId, isDraft } = query
+export default ({ query, enablePreview, store }) => {
+  if (query.previewId) {
+    const id = query.previewId
+    const isDraft = id.includes('drafts')
 
     if (isDraft) {
-      const movie = await $sanityPreview.fetch('*[_id == $id][0]', {
-        id: pageId,
-      })
-
-      enablePreview({ data: movie, isDraft: true })
-    } else {
-      enablePreview()
-    }
-  }
-}
- */
-
-export default ({ query, enablePreview, store }) => {
-  console.log('Preview Enabled')
-  if (typeof query.preview !== 'undefined') {
-    if (query.isDraft) {
+      enablePreview({ id })
       store.commit('showBanner')
-      enablePreview({ isDraft: true, pageId: query.pageId })
     } else {
       enablePreview()
     }

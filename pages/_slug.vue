@@ -15,17 +15,9 @@ export default {
   },
 
   async asyncData({ $sanity, params, $preview, $sanityPreview }) {
-    /*
-    if ($preview?.isDraft) {
-      return {
-        movie: $preview.data,
-        isDraft: true,
-      }
-    } */
-
     try {
-      if ($preview?.isDraft) {
-        const movie = await $sanityPreview($preview.pageId)
+      if ($preview?.id) {
+        const movie = await $sanityPreview($preview.id)
         return {
           movie,
         }
@@ -50,14 +42,13 @@ export default {
       isDraft: false,
     }
   },
-  mounted() {
-    // Live Preview
-    /*  if (this.$preview)
+  /*  mounted() {
+   if (this.$preview)
       this.$sanityPreview
         .listen('*[_id == $id][0]', { id: this.$route.query.pageId })
         .subscribe((update) => {
           this.movie = update.result
-        }) */
-  },
+        })
+  }, */
 }
 </script>
