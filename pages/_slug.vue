@@ -1,8 +1,5 @@
 <template>
   <article>
-    <!--     <button class="border-2 border-blue-500" @click="$nuxt.refresh()">
-      REFRESH
-    </button> -->
     <h1>{{ movie.title }}</h1>
     <img :src="$urlFor(movie.poster)" :alt="movie.title + 'poster'" />
     <BlockContent :blocks="movie.overview" />
@@ -17,15 +14,23 @@ export default {
     BlockContent,
   },
 
-  async asyncData({ $sanity, params, $preview }) {
-    if ($preview) {
+  async asyncData({ $sanity, params, $preview, $sanityPreview }) {
+    /*
+    if ($preview?.isDraft) {
       return {
-        movie: $preview,
+        movie: $preview.data,
         isDraft: true,
       }
-    }
+    } */
 
     try {
+      if ($preview?.isDraft) {
+        const movie = await $sanityPreview($preview.pageId)
+        return {
+          movie,
+        }
+      }
+
       const movie = await $sanity.fetch(
         "*[_type == 'movie' && slug.current == $slug][0]",
         {
@@ -46,12 +51,13 @@ export default {
     }
   },
   mounted() {
-    if (this.$preview)
+    // Live Preview
+    /*  if (this.$preview)
       this.$sanityPreview
         .listen('*[_id == $id][0]', { id: this.$route.query.pageId })
         .subscribe((update) => {
           this.movie = update.result
-        })
+        }) */
   },
 }
 </script>

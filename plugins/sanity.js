@@ -16,6 +16,11 @@ const preview = sanity({
   ...baseConfig,
 })
 
+const fetchDocById = (id) =>
+  preview.fetch('*[_id == $id][0]', {
+    id,
+  })
+
 const builder = imageUrlBuilder(client)
 
 const urlFor = (source) => builder.image(source).auto('format')
@@ -29,8 +34,8 @@ export default (context, inject) => {
   inject('sanity', client)
 
   // DO NOT CALL IT PREVIEW
-  context.$sanityPreview = preview
-  inject('sanityPreview', preview)
+  context.$sanityPreview = fetchDocById
+  inject('sanityPreview', fetchDocById)
 
   context.$urlFor = urlFor
   inject('urlFor', urlFor)
