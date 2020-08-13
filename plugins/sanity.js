@@ -7,6 +7,7 @@ const baseConfig = {
   projectId: 'tufjlt9c',
   dataset: 'production',
   useCdn: false,
+  withCredentials: true,
 }
 
 const client = sanity(baseConfig)

@@ -15,12 +15,12 @@ export default {
   },
   async asyncData({ $sanity, params, $preview, $sanityPreview }) {
     try {
-      if ($preview?.id) {
+      /*   if ($preview?.id) {
         const movie = await $sanityPreview($preview.id)
         return {
           movie,
         }
-      }
+      } */
 
       const movie = await $sanity.fetch(
         "*[_type == 'movie' && slug.current == $slug][0]",
