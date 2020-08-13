@@ -1,27 +1,18 @@
 import sanity from 'picosanity' // or from '@sanity/client'
-
 import imageUrlBuilder from '@sanity/image-url'
-// Config data for Sanity Client
 
-const baseConfig = {
+const client = sanity({
   projectId: 'tufjlt9c',
   dataset: 'production',
   useCdn: false,
   withCredentials: true,
-}
-
-const client = sanity(baseConfig)
-
-const preview = sanity({
-  withCredentials: true,
-  ...baseConfig,
 })
 
-const fetchDocById = (id) =>
+/* const fetchDocById = (id) =>
   preview.fetch('*[_id in [$id, "drafts." + $id]][0]', {
     id,
   })
-
+ */
 const builder = imageUrlBuilder(client)
 
 const urlFor = (source) => builder.image(source).auto('format')
@@ -35,8 +26,8 @@ export default (context, inject) => {
   inject('sanity', client)
 
   // DO NOT CALL IT PREVIEW
-  context.$sanityPreview = fetchDocById
-  inject('sanityPreview', fetchDocById)
+  /*   context.$sanityPreview = fetchDocById
+  inject('sanityPreview', fetchDocById) */
 
   context.$urlFor = urlFor
   inject('urlFor', urlFor)

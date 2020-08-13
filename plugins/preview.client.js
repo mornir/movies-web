@@ -1,7 +1,6 @@
 export default ({ query, enablePreview, store }) => {
-  if (query.previewId) {
-    const id = query.previewId
-    enablePreview({ id })
+  if (query.preview) {
+    enablePreview()
     store.commit('showBanner')
   }
 }
