@@ -17,7 +17,7 @@ const preview = sanity({
 })
 
 const fetchDocById = (id) =>
-  preview.fetch('*[_id == $id][0]', {
+  preview.fetch('*[_id in [$id, "drafts." + $id]][0]', {
     id,
   })
 
