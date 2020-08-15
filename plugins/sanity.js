@@ -8,11 +8,6 @@ const client = sanity({
   withCredentials: true,
 })
 
-/* const fetchDocById = (id) =>
-  preview.fetch('*[_id in [$id, "drafts." + $id]][0]', {
-    id,
-  })
- */
 const builder = imageUrlBuilder(client)
 
 const urlFor = (source) => builder.image(source).auto('format')
@@ -24,10 +19,6 @@ export default (context, inject) => {
   // Inject sanity client to the instance and context as $sanity
   context.$sanity = client
   inject('sanity', client)
-
-  // DO NOT CALL IT PREVIEW
-  /*   context.$sanityPreview = fetchDocById
-  inject('sanityPreview', fetchDocById) */
 
   context.$urlFor = urlFor
   inject('urlFor', urlFor)

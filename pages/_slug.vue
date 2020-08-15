@@ -1,7 +1,7 @@
 <template>
   <article>
     <h1>{{ movie.title }}</h1>
-    <img :src="$urlFor(movie.poster)" :alt="movie.title + 'poster'" />
+    <img :src="$urlFor(movie.poster)" :alt="movie.title + ' poster'" />
     <BlockContent :blocks="movie.overview" />
   </article>
 </template>
@@ -13,15 +13,8 @@ export default {
   components: {
     BlockContent,
   },
-  async asyncData({ $sanity, params, $preview, $sanityPreview }) {
+  async asyncData({ $sanity, params }) {
     try {
-      /*   if ($preview?.id) {
-        const movie = await $sanityPreview($preview.id)
-        return {
-          movie,
-        }
-      } */
-
       const movie = await $sanity.fetch(
         "*[_type == 'movie' && slug.current == $slug][0]",
         {
@@ -38,16 +31,30 @@ export default {
   data() {
     return {
       movie: {},
-      isDraft: false,
     }
   },
-  /* Real-Time preview mode. Requires @sanity/client. Doesn't work for references
-    mounted() {
-   if (this.$preview)
-      this.$sanityPreview
-        .listen('*[_id == $id][0]', { id: this.$route.query.pageId })
-        .subscribe((update) => {
-          this.movie = update.result
+  /* Possible implementation of real-time preview. Requires @sanity/client.
+  mounted() {
+    if (this.$route.query.preview)
+      this.$sanity
+        .listen('*[_type == "movie" && slug.current == $slug][0]', {
+          slug: this.$route.params.slug,
+        })
+        .subscribe(async (update) => {
+          // Doesn't work for references
+          // this.movie = update.result
+          // this.$nuxt.refresh()
+
+          try {
+            this.movie = await this.$sanity.fetch(
+              "*[_type == 'movie' && slug.current == $slug][0]",
+              {
+                slug: this.$route.params.slug,
+              }
+            )
+          } catch (error) {
+            console.error(error)
+          }
         })
   }, */
 }
