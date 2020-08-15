@@ -15,12 +15,9 @@ export default {
   },
   validate({ params, store, query }) {
     // If FALSE redirect to 404 page
-
-    /*   return (
+    return (
       query.preview === 'true' || store.state.moviesSlugs.includes(params.slug)
-    ) */
-
-    return store.state.moviesSlugs.includes(params.slug)
+    )
   },
   async asyncData({ $sanity, params }) {
     try {
