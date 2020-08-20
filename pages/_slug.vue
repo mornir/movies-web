@@ -22,7 +22,7 @@ export default {
   async asyncData({ $sanity, params }) {
     try {
       const movie = await $sanity.fetch(
-        "*[_type == 'movie' && slug.current == $slug][0]",
+        "*[_type == 'movie' && slug.current == $slug] | order(_updatedAt desc)[0]",
         {
           slug: params.slug,
         }
