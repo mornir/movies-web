@@ -1,3 +1,14 @@
+import { createClient, groq } from '@nuxtjs/sanity'
+
+const configSanity = {
+  projectId: 'tufjlt9c',
+  withCredentials: true,
+  useCdn: false,
+  minimal: true,
+}
+export const client = createClient(configSanity)
+const getAllMovies = groq`*[_type == 'movie']`
+
 export default {
   /*
    ** Nuxt target
@@ -25,7 +36,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~plugins/sanity.js', '~plugins/preview.client.js'],
+  plugins: ['~plugins/preview.client.js', '~plugins/image-builder'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -37,11 +48,26 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
+    // Doc: https://sanity.nuxtjs.org
+    '@nuxtjs/sanity',
   ],
 
   generate: {
     fallback: true,
+    routes() {
+      return client.fetch(getAllMovies).then((movie) => {
+        return {
+          route: `/${movie.slug.current}/`,
+          payload: movie,
+        }
+      })
+    },
+  },
+
+  // Doc: https://sanity.nuxtjs.org/configuration
+  sanity: {
+    ...configSanity,
   },
 }

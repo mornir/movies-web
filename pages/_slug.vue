@@ -2,17 +2,15 @@
   <article>
     <h1>{{ movie.title }}</h1>
     <img :src="$urlFor(movie.poster)" :alt="movie.title + ' poster'" />
-    <BlockContent :blocks="movie.overview" />
+    <SanityContent :blocks="movie.overview" :serializers="serializers" />
   </article>
 </template>
 
 <script>
-import BlockContent from 'sanity-blocks-vue-component'
+import externalLink from '@/components/serializers/externalLink'
+
 export default {
   name: 'Movie',
-  components: {
-    BlockContent,
-  },
   validate({ params, store, query }) {
     // If FALSE redirect to 404 page
     return (
@@ -37,6 +35,11 @@ export default {
   data() {
     return {
       movie: {},
+      serializers: {
+        marks: {
+          link: externalLink,
+        },
+      },
     }
   },
   /* Possible implementation of real-time preview. Requires @sanity/client.
