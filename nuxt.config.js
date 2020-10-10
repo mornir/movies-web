@@ -57,13 +57,19 @@ export default {
   generate: {
     fallback: true,
     routes() {
-      return client.fetch(getAllMovies).then((movie) => {
-        return {
-          route: `/${movie.slug.current}/`,
-          payload: movie,
-        }
+      return client.fetch(getAllMovies).then((movies) => {
+        movies.map((movie) => {
+          return {
+            route: `/${movie.slug.current}/`,
+            payload: movie,
+          }
+        })
       })
     },
+  },
+
+  router: {
+    trailingSlash: true,
   },
 
   // Doc: https://sanity.nuxtjs.org/configuration
