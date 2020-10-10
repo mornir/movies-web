@@ -11,11 +11,10 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@nuxtjs/sanity": "^0.3.7",
     "@sanity/image-url": "^0.140.19",
     "@tailwindcss/typography": "^0.2.0",
-    "nuxt": "^2.14.6",
-    "picosanity": "^2.0.2",
-    "sanity-blocks-vue-component": "^0.1.0"
+    "nuxt": "^2.14.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

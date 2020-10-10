@@ -1,3 +1,10 @@
+const configSanity = {
+  projectId: 'tufjlt9c',
+  withCredentials: true,
+  useCdn: false,
+  minimal: true,
+}
+
 export default {
   /*
    ** Nuxt target
@@ -25,7 +32,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~plugins/preview.client.js', '~plugins/sanity'],
+  plugins: ['~plugins/preview.client.js', '~plugins/image-builder.js'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -39,6 +46,7 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/sanity',
   ],
 
   generate: {
@@ -47,5 +55,9 @@ export default {
 
   router: {
     trailingSlash: true,
+  },
+
+  sanity: {
+    ...configSanity,
   },
 }
