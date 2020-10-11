@@ -11,8 +11,7 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
-    "@nuxtjs/sanity": "^0.3.7",
-    "@sanity/client": "^2.0.1",
+    "@nuxtjs/sanity": "^0.3.8",
     "@sanity/image-url": "^0.140.19",
     "@tailwindcss/typography": "^0.2.0",
     "nuxt": "^2.14.6"
