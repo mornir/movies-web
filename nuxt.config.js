@@ -1,10 +1,3 @@
-const configSanity = {
-  projectId: 'tufjlt9c',
-  withCredentials: true,
-  useCdn: false,
-  minimal: true,
-}
-
 export default {
   /*
    ** Nuxt target
@@ -58,6 +51,9 @@ export default {
   },
 
   sanity: {
-    ...configSanity,
+    projectId: 'tufjlt9c',
+    withCredentials: true,
+    useCdn: false,
+    minimal: true,
   },
 }

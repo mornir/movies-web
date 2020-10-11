@@ -1243,10 +1243,10 @@
     consola "^2.15.0"
     eslint-webpack-plugin "^2.1.0"
 
-"@nuxtjs/sanity@^0.3.8":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/sanity/-/sanity-0.3.8.tgz#b5ebd7017909e41c027ed9d33e984cc9dcee4d50"
-  integrity sha512-kdsSFfGbOjQPo/mT72NzAtPsKrzjPrc3qqx/l0DBv/OkC8UKggJZXhGbvxabHudnKsr9nTuGMDH3Glz6dnbjiA==
+"@nuxtjs/sanity@^0.3.9":
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/sanity/-/sanity-0.3.9.tgz#4b24affe412136ae0c921a17ef6bfa3347ed3f61"
+  integrity sha512-YEX5aTc6X2TKX3iz17xwgYe/EXotUR6JzrC7ziXj/9I/YbiCVID3SLhULUdgp80sTJK/VoDPkVIvk36sS8uLqA==
   dependencies:
     defu "^3.1.0"
 
