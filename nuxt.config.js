@@ -25,7 +25,11 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~plugins/preview.client.js', '~plugins/image-builder.js'],
+  plugins: [
+    '~plugins/preview.client.js',
+    '~plugins/image-builder.js',
+    '~/plugins/to-link.js',
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

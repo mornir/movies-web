@@ -4,7 +4,7 @@
       v-for="route in routes"
       :key="route._id"
       class="mr-4 text-xl"
-      :to="route.slug.current"
+      :to="$toLink(route)"
       >{{ route.title }}</nuxt-link
     >
   </nav>
