@@ -15,7 +15,7 @@
     </client-only>
     <div class="p-8 mx-auto prose lg:prose-xl">
       <header>
-        <h1><nuxt-link to="/">Home</nuxt-link></h1>
+        <TheNavBar />
       </header>
       <main>
         <Nuxt />
