@@ -19,7 +19,6 @@ const query = `
 
 export default {
   name: 'MoviesList',
-
   async asyncData({ $sanity }) {
     try {
       const movies = await $sanity.fetch(query)
