@@ -9,6 +9,8 @@
 <script>
 import externalLink from '@/components/serializers/externalLink'
 
+const query = /* groq */ `{ "movie": *[_type == 'movie' && slug.current == $slug] | order(_updatedAt desc)[0]}`
+
 export default {
   name: 'Movie',
   validate({ params, store, query }) {
@@ -17,24 +19,13 @@ export default {
       query.preview === 'true' || store.state.moviesSlugs.includes(params.slug)
     )
   },
-  async asyncData({ $sanity, params }) {
-    try {
-      const movie = await $sanity.fetch(
-        "*[_type == 'movie' && slug.current == $slug] | order(_updatedAt desc)[0]",
-        {
-          slug: params.slug,
-        }
-      )
-      return {
-        movie,
-      }
-    } catch (error) {
-      console.error(error)
-    }
+  asyncData({ $sanity, params }) {
+    return $sanity.fetch(query, {
+      slug: params.slug,
+    })
   },
   data() {
     return {
-      movie: {},
       serializers: {
         marks: {
           link: externalLink,
