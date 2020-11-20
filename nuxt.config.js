@@ -6,10 +6,14 @@ export default {
   target: 'static',
   /*
    ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
+   ** See https://nuxtjs.org/api/configuration-hea
+
    */
   head: {
     title: process.env.npm_package_name || '',
+    htmlAttrs: {
+      lang: 'en',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -44,6 +48,7 @@ export default {
     // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
+    '@nuxtjs/html-validator',
   ],
 
   generate: {
