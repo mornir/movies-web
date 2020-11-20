@@ -9,31 +9,19 @@
 </template>
 
 <script>
-const query = `
-*[_type == 'movie'] {
-  _id,
-  title,
-  "link": slug.current
+const query = /* groq */ `{
+  "movies": *[_type == 'movie'] {
+    _id,
+    title,
+    "link": slug.current
+  }
 }
 `
 
 export default {
   name: 'MoviesList',
-
-  async asyncData({ $sanity }) {
-    try {
-      const movies = await $sanity.fetch(query)
-      return {
-        movies,
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  },
-  data() {
-    return {
-      movies: [],
-    }
+  asyncData({ $sanity }) {
+    return $sanity.fetch(query)
   },
 }
 </script>

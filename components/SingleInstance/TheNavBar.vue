@@ -18,17 +18,17 @@ const query = `
 `
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      routes: [],
+    }
+  },
   async fetch() {
     try {
       const { navigation } = await this.$sanity.fetch(query)
       this.routes = navigation
     } catch (error) {
       console.error(error)
-    }
-  },
-  data() {
-    return {
-      routes: [],
     }
   },
 }
