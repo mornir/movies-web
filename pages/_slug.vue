@@ -37,7 +37,7 @@ export default {
   mounted() {
     if (this.$route.query.preview)
       this.$sanity
-        .listen('*[_type == "movie" && slug.current == $slug][0]', {
+        .listen('*[_type == "movie" && slug.current == $slug][0] | order(_updatedAt desc)[0]', {
           slug: this.$route.params.slug,
         })
         .subscribe(async (update) => {
