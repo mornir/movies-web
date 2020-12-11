@@ -2,7 +2,7 @@
   <div class="p-8 mx-auto prose lg:prose-xl">
     <div v-if="error.statusCode === 404">
       <img :src="`https://http.cat/404.jpg`" />
-
+      <p>404 not found</p>
       <p>
         Go back to
         <nuxt-link to="/" class="underline text-primary">Home Page</nuxt-link>

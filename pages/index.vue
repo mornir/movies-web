@@ -2,7 +2,9 @@
   <div>
     <ul>
       <li v-for="movie in movies" :key="movie._id">
-        <nuxt-link :to="'/' + movie.link + '/'">{{ movie.title }}</nuxt-link>
+        <nuxt-link :to="'/' + movie.link + '/'" :data-cy="movie._id">{{
+          movie.title
+        }}</nuxt-link>
       </li>
     </ul>
   </div>
