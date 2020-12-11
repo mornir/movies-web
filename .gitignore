@@ -58,7 +58,6 @@ typings/
 
 # dotenv environment variables file
 .env
-cypress.env.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -89,3 +88,8 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Cypress
+cypress.env.json
+cypress/videos
+cypress/screenshots
