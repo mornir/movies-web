@@ -48,7 +48,6 @@ export default {
     // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
-    '@nuxtjs/html-validator',
   ],
 
   generate: {
