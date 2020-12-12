@@ -48,6 +48,7 @@ export default {
     // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
+    '@nuxtjs/sitemap',
   ],
 
   generate: {
@@ -56,6 +57,10 @@ export default {
 
   router: {
     trailingSlash: true,
+  },
+
+  sitemap: {
+    hostname: 'https://nuxt-sanity-movies.netlify.app',
   },
 
   sanity: {

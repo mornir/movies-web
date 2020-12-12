@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/sanity": "^0.4.2",
+    "@nuxtjs/sitemap": "nuxt-community/sitemap-module#feat/static-crawler",
     "@sanity/image-url": "^0.140.19",
     "@tailwindcss/typography": "^0.3.1",
     "nuxt": "^2.14.9"
