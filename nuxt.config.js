@@ -7,7 +7,6 @@ export default {
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-hea
-
    */
   head: {
     title: process.env.npm_package_name || '',
