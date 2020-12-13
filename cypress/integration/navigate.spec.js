@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 context('Navigation', () => {
-  it('successfully loads', () => {
+  it.only('successfully loads data locally', () => {
     cy.visit('/')
     cy.get('[data-cy="movie_70981"]').click()
     cy.contains('Prometheus')
@@ -10,10 +10,15 @@ context('Navigation', () => {
   })
 
   it('redirects to 404 page if movie does not exist', () => {
+    cy.intercept({
+      url: '/a-movie-that-do-not-exis',
+    }).as('movie')
+
     cy.visit('/a-movie-that-do-not-exist', {
       failOnStatusCode: false,
     })
     cy.contains('404 not found')
+    cy.wait('@movie').its('response.statusCode').should('eq', 404)
   })
 })
 
