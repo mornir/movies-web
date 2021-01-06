@@ -7,7 +7,6 @@ export default {
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-hea
-
    */
   head: {
     title: process.env.npm_package_name || '',
@@ -48,6 +47,7 @@ export default {
     // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
+    '@nuxtjs/sitemap',
   ],
 
   generate: {
@@ -56,6 +56,10 @@ export default {
 
   router: {
     trailingSlash: true,
+  },
+
+  sitemap: {
+    hostname: 'https://nuxt-sanity-movies.netlify.app',
   },
 
   sanity: {

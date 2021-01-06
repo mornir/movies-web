@@ -13,22 +13,23 @@
   },
   "dependencies": {
     "@nuxtjs/sanity": "^0.4.2",
+    "@nuxtjs/sitemap": "nuxt-community/sitemap-module#feat/static-crawler",
     "@sanity/image-url": "^0.140.19",
     "@tailwindcss/typography": "^0.3.1",
-    "nuxt": "^2.14.9"
+    "nuxt": "^2.14.12"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
-    "@nuxtjs/eslint-module": "^3.0.1",
-    "@nuxtjs/tailwindcss": "^3.3.3",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^3.4.2",
     "babel-eslint": "^10.1.0",
-    "cypress": "^6.0.1",
-    "eslint": "^7.15.0",
-    "eslint-config-prettier": "^7.0.0",
+    "cypress": "^6.2.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-chai-friendly": "^0.6.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "prettier": "^2.2.1"
   }
 }
