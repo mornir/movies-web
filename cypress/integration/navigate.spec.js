@@ -1,17 +1,16 @@
 /// <reference types="cypress" />
 
 context('Navigation', () => {
-  it('successfully loads data locally', () => {
-    /*   cy.intercept(
+  it('successfully loads data from local payload', () => {
+    // Force 404 if it tries to fetch from API
+    cy.intercept(
       'https://tufjlt9c.api.sanity.io/v1/data/query/production',
       (req) => req.reply(404)
     ).as('api')
- */
 
     cy.visit('/')
 
     cy.get('[data-cy="movie_70981"]').click()
-    /*     cy.wait('@api').its('response.statusCode').should('eq', 200) */
     cy.contains('Prometheus')
     cy.reload()
     cy.contains('Prometheus')
