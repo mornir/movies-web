@@ -12,20 +12,20 @@
     "test": "cypress open"
   },
   "dependencies": {
-    "@nuxtjs/sanity": "^0.5.0",
+    "@nuxtjs/sanity": "^0.6.2",
     "@nuxtjs/sitemap": "nuxt-community/sitemap-module#feat/static-crawler",
     "@sanity/image-url": "^0.140.19",
     "@tailwindcss/typography": "^0.3.1",
-    "nuxt-edge": "^2.15.0-26840219.3265e949"
+    "nuxt-edge": "^2.15.0-26856070.8350560"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/tailwindcss": "^3.4.2",
     "babel-eslint": "^10.1.0",
-    "cypress": "^6.2.1",
-    "eslint": "^7.17.0",
-    "eslint-config-prettier": "^7.1.0",
+    "cypress": "^6.3.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-chai-friendly": "^0.6.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-nuxt": "^2.0.0",
