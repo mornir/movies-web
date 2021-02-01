@@ -16,6 +16,7 @@
     "@nuxtjs/sitemap": "nuxt-community/sitemap-module#feat/static-crawler",
     "@sanity/image-url": "^0.140.19",
     "@tailwindcss/typography": "^0.3.1",
+    "node-fetch": "^2.6.1",
     "nuxt-edge": "^2.15.0-26867561.0fd5f7df"
   },
   "devDependencies": {

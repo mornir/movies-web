@@ -1,3 +1,17 @@
+import { createClient } from '@nuxtjs/sanity'
+import fetch from 'node-fetch'
+if (!globalThis.fetch) {
+  globalThis.fetch = fetch
+}
+
+const configSanity = {
+  projectId: 'tufjlt9c',
+  useCdn: false,
+  minimal: true,
+}
+
+const client = createClient(configSanity)
+
 export default {
   /*
    ** Nuxt target
@@ -52,6 +66,12 @@ export default {
 
   generate: {
     fallback: true,
+    crawler: false,
+    async routes() {
+      const routes = await client.fetch(`*[_type == "movie"].slug.current`)
+      console.log(routes)
+      return []
+    },
   },
 
   router: {
@@ -63,9 +83,7 @@ export default {
   },
 
   sanity: {
-    projectId: 'tufjlt9c',
+    ...configSanity,
     withCredentials: true,
-    useCdn: false,
-    minimal: true,
   },
 }
