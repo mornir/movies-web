@@ -8,6 +8,7 @@ const configSanity = {
   projectId: 'tufjlt9c',
   useCdn: false,
   minimal: true,
+  dataset: 'production',
 }
 
 const client = createClient(configSanity)
@@ -68,9 +69,13 @@ export default {
     fallback: true,
     crawler: false,
     async routes() {
-      const routes = await client.fetch(`*[_type == "movie"].slug.current`)
-      console.log(routes)
-      return []
+      const movies = await client.fetch(`*[_type == "movie"]`)
+      return movies.map((movie) => {
+        return {
+          route: movie.slug.current,
+          payload: movie,
+        }
+      })
     },
   },
 
