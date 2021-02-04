@@ -19,7 +19,10 @@ export default {
       query.preview === 'true' || store.state.moviesSlugs.includes(params.slug)
     )
   },
-  asyncData({ $sanity, params }) {
+  asyncData({ $sanity, params, payload }) {
+    if (payload) {
+      return { movie: payload }
+    }
     return $sanity.fetch(query, {
       slug: params.slug,
     })
