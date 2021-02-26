@@ -16,7 +16,7 @@ export default {
   validate({ params, store, query }) {
     // If FALSE redirect to 404 page
     return (
-      query.preview === 'true' || store.state.moviesSlugs.includes(params.slug)
+      query.preview === 'true' || store.state.moviesSlugs.includes(params.movie)
     )
   },
   asyncData({ $sanity, params, payload }) {
@@ -24,7 +24,7 @@ export default {
       return { movie: payload }
     }
     return $sanity.fetch(query, {
-      slug: params.slug,
+      slug: params.movie,
     })
   },
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <h1>Screening Index</h1>
+  <h1>Screening Slug</h1>
 </template>
 
 <script>
