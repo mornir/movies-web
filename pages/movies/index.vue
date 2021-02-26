@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h1>Home</h1>
+    <ul>
+      <li v-for="movie in movies" :key="movie._id">
+        <nuxt-link :to="'/movies/' + movie.link + '/'" :data-cy="movie._id">{{
+          movie.title
+        }}</nuxt-link>
+      </li>
+    </ul>
   </div>
 </template>
 

@@ -72,7 +72,7 @@ export default {
       const movies = await client.fetch(`*[_type == "movie"]`)
       return movies.map((movie) => {
         return {
-          route: `/${movie.slug.current}/`,
+          route: `/movies/${movie.slug.current}/`,
           payload: movie,
         }
       })
