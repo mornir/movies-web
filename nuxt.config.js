@@ -83,6 +83,10 @@ export default {
     trailingSlash: true,
   },
 
+  tailwindcss: {
+    jit: true,
+  },
+
   sitemap: {
     hostname: 'https://nuxt-sanity-movies.netlify.app',
   },
