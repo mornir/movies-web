@@ -87,10 +87,6 @@ export default {
     hostname: 'https://nuxt-sanity-movies.netlify.app',
   },
 
-  tailwindcss: {
-    jit: true,
-  },
-
   sanity: {
     ...configSanity,
     withCredentials: true,
