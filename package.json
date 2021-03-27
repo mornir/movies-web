@@ -15,22 +15,24 @@
     "@nuxtjs/sanity": "^0.7.1",
     "@nuxtjs/sitemap": "nuxt-community/sitemap-module#feat/static-crawler",
     "@sanity/image-url": "^0.140.22",
-    "@tailwindcss/typography": "^0.3.1",
+    "@tailwindcss/typography": "^0.4.0",
     "node-fetch": "^2.6.1",
-    "nuxt": "^2.15.2"
+    "nuxt": "^2.15.3"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^5.0.0",
+    "@nuxtjs/eslint-config": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/tailwindcss": "^3.4.2",
+    "@nuxtjs/tailwindcss": "^4.0.2",
+    "autoprefixer": "^10.2.5",
     "babel-eslint": "^10.1.0",
-    "cypress": "^6.5.0",
-    "eslint": "^7.20.0",
+    "cypress": "^6.8.0",
+    "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-chai-friendly": "^0.6.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "postcss": "^8.2.8",
     "prettier": "^2.2.1"
   }
 }
