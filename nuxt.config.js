@@ -61,7 +61,7 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/sanity',
+    '@nuxtjs/sanity/module',
     '@nuxtjs/sitemap',
   ],
 
