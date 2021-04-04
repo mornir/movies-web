@@ -3,12 +3,12 @@ import fetch from 'node-fetch'
 if (!globalThis.fetch) {
   globalThis.fetch = fetch
 }
-
 const configSanity = {
   projectId: 'tufjlt9c',
   useCdn: false,
   minimal: true,
   dataset: 'production',
+  apiVersion: '2021-04-04',
 }
 
 const client = createClient(configSanity)
@@ -61,7 +61,7 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://tailwindcss.nuxtjs.org
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/sanity',
+    '@nuxtjs/sanity/module',
     '@nuxtjs/sitemap',
   ],
 
@@ -69,7 +69,7 @@ export default {
     fallback: true,
     crawler: false,
     async routes() {
-      const movies = await client.fetch(`*[_type == "movie"]`)
+      const movies = (await client.fetch(`*[_type == "movie"]`)) || []
       return movies.map((movie) => {
         return {
           route: `/movies/${movie.slug.current}/`,
@@ -81,6 +81,10 @@ export default {
 
   router: {
     trailingSlash: true,
+  },
+
+  tailwindcss: {
+    jit: true,
   },
 
   sitemap: {
