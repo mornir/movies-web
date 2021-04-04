@@ -3,12 +3,12 @@ import fetch from 'node-fetch'
 if (!globalThis.fetch) {
   globalThis.fetch = fetch
 }
-
 const configSanity = {
   projectId: 'tufjlt9c',
   useCdn: false,
   minimal: true,
   dataset: 'production',
+  apiVersion: '2021-04-04',
 }
 
 const client = createClient(configSanity)
@@ -69,7 +69,7 @@ export default {
     fallback: true,
     crawler: false,
     async routes() {
-      const movies = await client.fetch(`*[_type == "movie"]`)
+      const movies = (await client.fetch(`*[_type == "movie"]`)) || []
       return movies.map((movie) => {
         return {
           route: `/movies/${movie.slug.current}/`,
