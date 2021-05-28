@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="flex flex-wrap">
     <nuxt-link
       v-for="route in routes"
       :key="route._id"

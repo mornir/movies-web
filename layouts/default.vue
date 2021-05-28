@@ -13,7 +13,7 @@
         </p>
       </aside>
     </client-only>
-    <div class="p-8 mx-auto prose lg:prose-xl">
+    <div class="px-2 py-8 mx-auto prose lg:prose-xl">
       <header>
         <TheNavBar />
       </header>
