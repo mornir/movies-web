@@ -2,7 +2,7 @@
   <div>
     <client-only>
       <aside
-        v-if="$store.state.showDrafPreviewBanner"
+        v-if="$nuxt.isPreview"
         class="sticky top-0 py-2 text-center bg-blue-500 bg-opacity-50"
       >
         <p class="font-semibold">

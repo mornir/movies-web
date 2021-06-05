@@ -1,8 +1,17 @@
 <template>
   <article>
     <h1>{{ movie.title }}</h1>
-    <img :src="$urlFor(movie.poster)" :alt="movie.title + ' poster'" />
-    <SanityContent :blocks="movie.overview" :serializers="serializers" />
+    <nuxt-img
+      provider="sanity"
+      :src="movie.poster.asset._ref"
+      :alt="movie.title + ' poster'"
+      width="500"
+      height="500"
+      format="auto"
+      loading="lazy"
+      :modifiers="{ auto: 'format' }"
+    />
+    <!--  <SanityContent :blocks="movie.overview" :serializers="serializers" /> -->
   </article>
 </template>
 
@@ -13,12 +22,6 @@ const query = /* groq */ `{ "movie": *[_type == 'movie' && slug.current == $slug
 
 export default {
   name: 'Movie',
-  validate({ params, store, query }) {
-    // If FALSE redirect to 404 page
-    return (
-      query.preview === 'true' || store.state.moviesSlugs.includes(params.movie)
-    )
-  },
   asyncData({ $sanity, params, payload }) {
     if (payload) {
       return { movie: payload }
