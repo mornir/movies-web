@@ -16,7 +16,8 @@
     "@sanity/image-url": "^0.140.22",
     "@tailwindcss/typography": "^0.4.1",
     "nuxt": "^2.15.6",
-    "picosanity": "^3.0.1"
+    "picosanity": "^3.0.1",
+    "sanity-blocks-vue-component": "0.1.0"
   },
   "devDependencies": {
     "@nuxt/image": "^0.4.14",

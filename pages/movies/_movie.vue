@@ -1,27 +1,38 @@
 <template>
   <article>
     <h1>{{ movie.title }}</h1>
+    <BlockContent :blocks="movie.overview" :serializers="serializers" />
+
+    <h2>nuxt/image</h2>
     <nuxt-img
       provider="sanity"
       :src="movie.poster.asset._ref"
       :alt="movie.title + ' poster'"
       width="500"
       height="500"
-      format="auto"
-      loading="lazy"
-      :modifiers="{ auto: 'format' }"
+      sizes="sm:100vw lg:520px"
     />
-    <!--  <SanityContent :blocks="movie.overview" :serializers="serializers" /> -->
+
+    <h2>@sanity/image-url</h2>
+    <img
+      :src="$urlFor(movie.poster).width(500).height(500)"
+      :alt="movie.title + ' poster'"
+      width="500"
+      height="500"
+    />
+    <BlockContent :blocks="movie.overview" :serializers="serializers" />
   </article>
 </template>
 
 <script>
 import externalLink from '@/components/serializers/externalLink'
+import BlockContent from 'sanity-blocks-vue-component'
 
 const query = /* groq */ `{ "movie": *[_type == 'movie' && slug.current == $slug] | order(_updatedAt desc)[0]}`
 
 export default {
   name: 'Movie',
+  components: { BlockContent },
   asyncData({ $sanity, params, payload }) {
     if (payload) {
       return { movie: payload }
